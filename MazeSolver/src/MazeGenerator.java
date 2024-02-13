@@ -1,4 +1,11 @@
 /**
+ *  * Project Description:
+ * 
+ * Name: Farzad Hasan
+ * Period: 1
+ * Project: Maze Solver
+ * Date: 2/13/2024
+ * 
  * Creates new mazes. Please refer to the spec for instructions on how to generate mazes.
  */
 public class MazeGenerator

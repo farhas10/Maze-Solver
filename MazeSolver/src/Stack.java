@@ -1,4 +1,11 @@
 /**
+ * Project Description:
+ * 
+ * Name: Farzad Hasan
+ * Period: 1
+ * Project: Maze Solver
+ * Date: 2/13/2024
+ * 
  * A last-in-first-out (LIFO) stack of generic items.
  *
  * @param <T> the type of item to store in the stack

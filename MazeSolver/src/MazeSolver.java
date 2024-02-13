@@ -1,4 +1,11 @@
 /**
+ * Project Description:
+ * 
+ * Name: Farzad Hasan
+ * Period: 1
+ * Project: Maze Solver
+ * Date: 2/13/2024
+ * 
  * Solves mazes. Please refer to the specification for instructions on how to solve mazes.
  */
 public class MazeSolver
