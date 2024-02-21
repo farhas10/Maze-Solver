@@ -110,7 +110,7 @@ public class MazeGenerator
                 	break;
                 }
                 
-                newStack.push(new Cell (xCoord, yCoord));
+                newStack.push(new Cell (newX, newY));
 
                 
             }
