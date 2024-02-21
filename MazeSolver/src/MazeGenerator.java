@@ -22,7 +22,7 @@ public class MazeGenerator
         
         Maze maze = new Maze(size);
         
-        Stack
+
         return maze;
         
     }
