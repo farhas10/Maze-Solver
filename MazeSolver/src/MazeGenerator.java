@@ -66,7 +66,7 @@ public class MazeGenerator
                 	newY--;
                 }
                 
-                newStack.push(new Cell (xCoord, yCoord));
+                newStack.push(new Cell (newX, newY));
                 counter = 0;
                 neighborDirections = new Direction[4];
                 
