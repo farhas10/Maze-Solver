@@ -92,20 +92,17 @@ public class MazeGenerator
                 
                 if (neighborDirections[random] == Direction.LEFT) {
                 	newX --; 
-                	break;
+       
                 }
                 
                 if (neighborDirections[random] == Direction.RIGHT) {
                 	newX++;
-                	break;
                 }
                 if (neighborDirections[random] == Direction.UP) {
                 	newY++;
-                	break;
                 }
                 if (neighborDirections[random] == Direction.DOWN) {
                 	newY--;
-                	break;
                 }
                 
                 newStack.push(new Cell (newX, newY));
