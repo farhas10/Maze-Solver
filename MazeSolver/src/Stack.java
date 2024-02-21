@@ -12,12 +12,25 @@
  */
 public class Stack<T>
 {
-    /**
-     * Initializes an empty stack.
-     */
+	
+	//Creates the starting node.
+	private Node head;
+	//Creates variable to track length of list.
+    private int size;
+    
+    private static class Node<T> 
+    {
+    	//Creates field for data.
+        private T data;
+        //Creates the next node to point to the next item in list.
+        private Node next;
+    }
+    
     public Stack()
     {
-        throw new UnsupportedOperationException("Implement me!");
+    	//Creates a new stack
+    	head = null;
+        size = 0;
     }
 
     /**
@@ -27,7 +40,17 @@ public class Stack<T>
      */
     public void push(T newItem)
     {
-        throw new UnsupportedOperationException("Implement me!");
+    	//Checks if new item had anything of not.
+    	if (newItem == null) {
+    		throw new IllegalArgumentException();
+    	}
+    	
+    	//pushes to the stack.
+        Node old = head;
+        head = new Node();
+        head.data = newItem;
+        head.next = old;
+        size++;
     }
 
     /**
@@ -37,7 +60,14 @@ public class Stack<T>
      */
     public T pop()
     {
-        throw new UnsupportedOperationException("Implement me!");
+    	//Checks current state of the list.
+    	if (isEmpty()) {
+    		throw new IllegalStateException();
+    	}
+        T popItem = (T)head.data;
+        head = head.next;
+        size--;
+        return popItem;
     }
 
     /**
@@ -47,7 +77,10 @@ public class Stack<T>
      */
     public T peek()
     {
-        throw new UnsupportedOperationException("Implement me!");
+    	if (isEmpty()) {
+    		throw new IllegalStateException();
+    	}
+        return (T)head.data;
     }
 
     /**
@@ -57,7 +90,8 @@ public class Stack<T>
      */
     public boolean isEmpty()
     {
-        throw new UnsupportedOperationException("Implement me!");
+    	//checks if array is empty or not.
+    	return (size == 0);
     }
 
     /**
@@ -67,6 +101,6 @@ public class Stack<T>
      */
     public int size()
     {
-        throw new UnsupportedOperationException("Implement me!");
+    	return size;
     }
 }

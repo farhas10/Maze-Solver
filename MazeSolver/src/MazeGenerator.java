@@ -19,6 +19,12 @@ public class MazeGenerator
     public Maze generate(int size)
     {
         throw new UnsupportedOperationException("Implement me!");
+        
+        Maze maze = new Maze(size);
+        
+        Stack
+        return maze;
+        
     }
 
     /**
