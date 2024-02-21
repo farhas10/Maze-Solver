@@ -17,8 +17,7 @@ public class MazeGenerator
      * @return the generated maze
      */
 	
-	Direction[] neighborDirections = new Direction[4];
-    int counter = 0;
+	
     
     public Maze generate(int size)
     {
@@ -36,11 +35,49 @@ public class MazeGenerator
         	Cell currentCell = newStack.pop();
             int xCoord = currentCell.getX();
             int yCoord = currentCell.getY();
-            
+            Direction[] neighborDirections = new Direction[4];
+            int counter = 0;
             //Visits each cell at the right X and Y coordinates.
             maze.visit(xCoord, yCoord);
             //Adds to the existing array the location and direction.
-            getDirection(maze, xCoord, yCoord);
+            if (xCoord > 0)
+            {
+                if (!maze.isVisited(xCoord - 1, yCoord))
+                {
+                    neighborDirections[counter] = Direction.LEFT;
+                    counter++;
+                }
+                
+            }
+        	if (yCoord > 0)
+            {
+       
+                if (!maze.isVisited(xCoord, yCoord - 1))
+                {
+                    neighborDirections[counter] = Direction.DOWN;
+                    counter++;
+                }
+            }
+        	
+        	if (xCoord < maze.size() - 1)
+            {
+
+                if (!maze.isVisited(xCoord + 1, yCoord))
+                {
+                    neighborDirections[counter] = Direction.RIGHT;
+                    counter++;
+                }
+            }
+        	
+        	if (yCoord < maze.size() - 1)
+            {
+      
+                if (!maze.isVisited(xCoord, yCoord + 1))
+                {
+                    neighborDirections[counter] = Direction.UP;
+                    counter++;
+                }
+            }
             
             if (counter > 0) {
             	
@@ -71,16 +108,21 @@ public class MazeGenerator
                 }
                 
                 newStack.push(new Cell (newX, newY));
-                counter = 0;
-                neighborDirections = null;
-                
             }
             
-            int xInit = (int)(Math.random() * size);
-            int yInit = (int)(Math.random() * size);
-            int xFinal = (int)(Math.random() * size);
-            int yFinal = (int)(Math.random() * size);
+            int xInit = 0;
+            int yInit = 0;
+            int xFinal = 0;
+            int yFinal = 0;
            
+                
+            while ((xInit == xFinal) && (yInit == yFinal)) {
+            	xInit = (int)(Math.random() * size);
+                yInit = (int)(Math.random() * size);
+                xFinal   = (int)(Math.random() * size);
+                yFinal   = (int)(Math.random() * size);
+            }
+
             maze.setStart(xInit, yInit);
             maze.setEnd(xFinal, yFinal);
 
@@ -92,46 +134,6 @@ public class MazeGenerator
     
     
     
-    private void getDirection(Maze maze, int xCoord, int yCoord) {
-    	if (xCoord > 0)
-        {
-            if (!maze.isVisited(xCoord - 1, yCoord))
-            {
-                neighborDirections[counter] = Direction.LEFT;
-                counter++;
-            }
-            
-        }
-    	if (yCoord > 0)
-        {
-   
-            if (!maze.isVisited(xCoord, yCoord - 1))
-            {
-                neighborDirections[counter] = Direction.DOWN;
-                counter++;
-            }
-        }
-    	
-    	if (xCoord < maze.size() - 1)
-        {
-
-            if (!maze.isVisited(xCoord + 1, yCoord))
-            {
-                neighborDirections[counter] = Direction.RIGHT;
-                counter++;
-            }
-        }
-    	
-    	if (yCoord < maze.size() - 1)
-        {
-  
-            if (!maze.isVisited(xCoord, yCoord + 1))
-            {
-                neighborDirections[counter] = Direction.UP;
-                counter++;
-            }
-        }
-    }
 
     /**
      * Creates and draws a sample maze. Try generating mazes with different sizes!
