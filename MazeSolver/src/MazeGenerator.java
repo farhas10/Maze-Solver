@@ -78,6 +78,14 @@ public class MazeGenerator
             int yInit = (int)(Math.random() * size);
             int xFinal = (int)(Math.random() * size);
             int yFinal = (int)(Math.random() * size);
+            
+            //Made to handle edge case where the start and end are the same.
+            while (xInit == yInit && xFinal == yFinal) {
+            	xInit = (int)(Math.random() * size);
+            	yInit = (int)(Math.random() * size);
+            	xFinal = (int)(Math.random() * size);
+            	yFinal = (int)(Math.random() * size);
+            }
            
                 
            
