@@ -4,7 +4,7 @@
  * Name: Farzad Hasan
  * Period: 1
  * Project: Maze Solver
- * Date: 2/13/2024
+ * Date: 2/20/2024
  * 
  * Creates new mazes. Please refer to the spec for instructions on how to generate mazes.
  */
@@ -18,11 +18,26 @@ public class MazeGenerator
      */
     public Maze generate(int size)
     {
-        throw new UnsupportedOperationException("Implement me!");
-        
+    	//Creates new maze object of size, size.
         Maze maze = new Maze(size);
         
-
+        //Creates a new stack of type cell.
+        Stack<Cell> newStack = new Stack<Cell>();
+        
+        //Adds first cell to the stack.
+        newStack.push(new Cell(0, 0));
+        
+        //Parses stack to get the coordinates of each cell.
+        while (!newStack.isEmpty()) {
+        	Cell currentCell = newStack.pop();
+            int xCoord = currentCell.getX();
+            int yCoord = currentCell.getY();
+            
+            //Visits each cell at the right X and Y coordinates.
+            maze.visit(xCoord, yCoord);
+            
+            
+        }
         return maze;
         
     }
