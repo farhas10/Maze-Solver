@@ -72,7 +72,7 @@ public class MazeGenerator
                 
                 newStack.push(new Cell (xCoord, yCoord));
                 counter = 0;
-                neighborDirections = new Direction[4];
+                neighborDirections = null;
                 
             }
             
@@ -81,9 +81,6 @@ public class MazeGenerator
             int xFinal = (int)(Math.random() * size);
             int yFinal = (int)(Math.random() * size);
            
-         
-           
-
             maze.setStart(xInit, yInit);
             maze.setEnd(xFinal, yFinal);
 
