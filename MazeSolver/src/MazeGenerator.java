@@ -35,10 +35,11 @@ public class MazeGenerator
         	Cell currentCell = newStack.pop();
             int xCoord = currentCell.getX();
             int yCoord = currentCell.getY();
-            Direction[] neighborDirections = new Direction[4];
-            int counter = 0;
+            
             //Visits each cell at the right X and Y coordinates.
             maze.visit(xCoord, yCoord);
+            Direction[] neighborDirections = new Direction[4];
+            int counter = 0;
             //Adds to the existing array the location and direction.
             if (xCoord > 0)
             {
