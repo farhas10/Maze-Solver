@@ -4,7 +4,7 @@
  * Name: Farzad Hasan
  * Period: 1
  * Project: Maze Solver
- * Date: 2/13/2024
+ * Date: 2/20/2024
  * 
  * A last-in-first-out (LIFO) stack of generic items.
  *
