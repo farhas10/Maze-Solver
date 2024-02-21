@@ -1,6 +1,7 @@
 /**
  *  * Project Description:
- * 
+ * In this project we will develop a LinkedList or ArrayList Queue
+ * and stack system to solve and generate a series of perfect mazes.
  * Name: Farzad Hasan
  * Period: 1
  * Project: Maze Solver
@@ -52,6 +53,7 @@ public class MazeGenerator
                 int newX = xCoord;
                 int newY = yCoord;
                 
+                //Depending on the direction the X and Y will either increase or decrease.
                 if (neighborDirections[random] == Direction.LEFT) {
                 	newX --; 
                 }
@@ -72,14 +74,15 @@ public class MazeGenerator
                 
             }
             
+            //Randomizing the start and end points.
             int xInit = (int)(Math.random() * size);
             int yInit = (int)(Math.random() * size);
             int xFinal = (int)(Math.random() * size);
             int yFinal = (int)(Math.random() * size);
            
                 
-            
-
+           
+            //Setting the final end and start points for the maze.
             maze.setStart(xInit, yInit);
             maze.setEnd(xFinal, yFinal);
 
@@ -90,42 +93,37 @@ public class MazeGenerator
     }
     
     
-    
+    //Helper method to determine the direction of the cell. 
     private void getDirection(Maze maze, int xCoord, int yCoord) {
-    	if (xCoord > 0)
-        {
-            if (!maze.isVisited(xCoord - 1, yCoord))
-            {
+    	
+    	//Checks the cases for when the different X and Y's are at different values and sets
+    	//direction accordingly.
+    	if (xCoord > 0){
+            if (!maze.isVisited(xCoord - 1, yCoord)){
                 neighborDirections[counter] = Direction.LEFT;
                 counter++;
             }
             
         }
-    	if (yCoord > 0)
-        {
+    	if (yCoord > 0){
    
-            if (!maze.isVisited(xCoord, yCoord - 1))
-            {
+            if (!maze.isVisited(xCoord, yCoord - 1)){
                 neighborDirections[counter] = Direction.DOWN;
                 counter++;
             }
         }
     	
-    	if (xCoord < maze.size() - 1)
-        {
+    	if (xCoord < maze.size() - 1){
 
-            if (!maze.isVisited(xCoord + 1, yCoord))
-            {
+            if (!maze.isVisited(xCoord + 1, yCoord)){
                 neighborDirections[counter] = Direction.RIGHT;
                 counter++;
             }
         }
     	
-    	if (yCoord < maze.size() - 1)
-        {
+    	if (yCoord < maze.size() - 1){
   
-            if (!maze.isVisited(xCoord, yCoord + 1))
-            {
+            if (!maze.isVisited(xCoord, yCoord + 1)){
                 neighborDirections[counter] = Direction.UP;
                 counter++;
             }

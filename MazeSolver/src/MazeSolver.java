@@ -1,10 +1,11 @@
 /**
  * Project Description:
- * 
+ * In this project we will develop a LinkedList or ArrayList Queue
+ * and stack system to solve and generate a series of perfect mazes.
  * Name: Farzad Hasan
  * Period: 1
  * Project: Maze Solver
- * Date: 2/13/2024
+ * Date: 2/20/2024
  * 
  * Solves mazes. Please refer to the specification for instructions on how to solve mazes.
  */
