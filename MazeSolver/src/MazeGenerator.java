@@ -71,20 +71,18 @@ public class MazeGenerator
                 }
                 
                 newStack.push(new Cell (xCoord, yCoord));
+                counter = 0;
+                neighborDirections = new Direction[4];
+                
             }
             
-            int xInit = 0;
-            int yInit = 0;
-            int xFinal = 0;
-            int yFinal = 0;
+            int xInit = (int)(Math.random() * size);
+            int yInit = (int)(Math.random() * size);
+            int xFinal = (int)(Math.random() * size);
+            int yFinal = (int)(Math.random() * size);
            
          
-            while ((xInit == xFinal) && (yInit == yFinal)) {
-            	xInit = (int)(Math.random() * size);
-                yInit = (int)(Math.random() * size);
-                xFinal   = (int)(Math.random() * size);
-                yFinal   = (int)(Math.random() * size);
-            }
+           
 
             maze.setStart(xInit, yInit);
             maze.setEnd(xFinal, yFinal);
