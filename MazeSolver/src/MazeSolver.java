@@ -50,8 +50,7 @@ public class MazeSolver
     {
         int size = maze.size();
         
-        
-        
+        Path result = Path.NO_PATH;
         Queue<cellQueue> newQueue = new Queue<cellQueue>();
         
         newQueue.enqueue(new cellQueue(Path.NO_PATH, maze.getStart()));
@@ -61,16 +60,53 @@ public class MazeSolver
         	Cell current = c.getCell();
         	int x = current.getX(), y = current.getY();
         	maze.visit(x, y);
-        	Path result = c.getPath();
+        	result = c.getPath();
         	
         	if (current.equals(maze.getEnd())) {
         		return result;
         	}
         	
-        	
-        	
+        	if (x > 0)
+            {
+        		//Checks if cell to the left is open.
+                if (!maze.isVisited(x - 1, y) && maze.isOpen(x, y, Direction.LEFT))
+                {
+                	//Adds next cell to the queue
+                    newQueue.enqueue(new cellQueue(c.getPath(),new Cell(x - 1, y)));
+                }
+                
+                //Checks if cell below is open.
+                if (!maze.isVisited(x, y - 1) && maze.isOpen(x, y, Direction.DOWN))
+                {
+                	//Adds next cell to the queue
+                    newQueue.enqueue(new cellQueue(c.getPath(),new Cell(x, y - 1)));
+                }
+                
+                //Checks if cell to the right is open.
+                if (x < size - 1)
+                {
+                    if (!maze.isVisited(x + 1, y) && maze.isOpen(x, y, Direction.RIGHT))
+                    {
+                    	//Adds next cell to the queue
+                        newQueue.enqueue(new cellQueue(c.getPath(), new Cell(x + 1, y)));
+                    }
+                }
+                
+                //Checks if cell above is open.
+                if (y < size - 1)
+                {
+                    if (!maze.isVisited(x, y + 1) && maze.isOpen(x, y, Direction.UP))
+                    {
+                    	//Adds next cell to the queue
+                    	newQueue.enqueue(new cellQueue(c.getPath(), new Cell(x, y + 1)));
+                    }
+                }
+                
+            }	
         	
         }
+        return result;
+        
     }
 
     /**
