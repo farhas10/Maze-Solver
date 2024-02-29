@@ -50,7 +50,6 @@ public class MazeSolver
     {
         int size = maze.size();
         
-        Path result = Path.NO_PATH;
         
         Queue<cellQueue> newQueue = new Queue<cellQueue>();
         
@@ -61,7 +60,7 @@ public class MazeSolver
         	Cell current = c.getCell();
         	int x = current.getX(), y = current.getY();
         	maze.visit(x, y);
-        	result = c.getPath();
+        	Path result = c.getPath();
         	
         	if (current.equals(maze.getEnd())) {
         		return result;
@@ -106,7 +105,7 @@ public class MazeSolver
                 }
                 
             }	
-        return result;
+        return Path.NO_PATH;
         }
         
         
