@@ -51,6 +51,7 @@ public class MazeSolver
         int size = maze.size();
         
         Path result = Path.NO_PATH;
+        
         Queue<cellQueue> newQueue = new Queue<cellQueue>();
         
         newQueue.enqueue(new cellQueue(Path.NO_PATH, maze.getStart()));
@@ -74,14 +75,16 @@ public class MazeSolver
                 	//Adds next cell to the queue
                     newQueue.enqueue(new cellQueue(c.getPath(),new Cell(x - 1, y)));
                 }
-                
+            }
                 //Checks if cell below is open.
+        	
+        	if (y > 0) {
                 if (!maze.isVisited(x, y - 1) && maze.isOpen(x, y, Direction.DOWN))
                 {
                 	//Adds next cell to the queue
                     newQueue.enqueue(new cellQueue(c.getPath(),new Cell(x, y - 1)));
                 }
-                
+        	}
                 //Checks if cell to the right is open.
                 if (x < size - 1)
                 {
@@ -103,11 +106,10 @@ public class MazeSolver
                 }
                 
             }	
-        	
-        }
         return result;
+        }
         
-    }
+        
 
     /**
      * Creates, solves, and draws a sample maze. Try solving mazes with different sizes!
