@@ -48,7 +48,29 @@ public class MazeSolver
      */
     public Path solve(Maze maze)
     {
-        throw new UnsupportedOperationException("Implement me!");
+        int size = maze.size();
+        
+        
+        
+        Queue<cellQueue> newQueue = new Queue<cellQueue>();
+        
+        newQueue.enqueue(new cellQueue(Path.NO_PATH, maze.getStart()));
+        
+        while (!newQueue.isEmpty()) {
+        	cellQueue c = newQueue.dequeue();
+        	Cell current = c.getCell();
+        	int x = current.getX(), y = current.getY();
+        	maze.visit(x, y);
+        	Path result = c.getPath();
+        	
+        	if (current.equals(maze.getEnd())) {
+        		return result;
+        	}
+        	
+        	
+        	
+        	
+        }
     }
 
     /**
