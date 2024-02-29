@@ -5,12 +5,39 @@
  * Name: Farzad Hasan
  * Period: 1
  * Project: Maze Solver
- * Date: 2/20/2024
+ * Date: 2/26/2024
  * 
  * Solves mazes. Please refer to the specification for instructions on how to solve mazes.
  */
 public class MazeSolver
 {
+	
+	//Helper class as outlined by FAQ to store possible solution paths.
+	public class cellQueue{
+		private Path p;
+		private Cell c;
+		
+		public cellQueue(Path path, Cell cell) {
+			c = cell;
+			p = new Path();
+			
+			for (Cell cNext : path) {
+				p.addLast(cNext);
+			}
+			
+			p.addLast(cell);
+		}
+		
+		public Cell getCell() {
+			return c;
+		}
+		
+		public Path getPath() {
+			return p;
+		}
+	}
+
+	
     /**
      * Provides a solution for a given maze, if possible. A solution is a path from the start cell
      * to the finish cell (inclusive). If there is no solution to the maze then returns the static
