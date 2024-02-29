@@ -5,7 +5,7 @@
  * Name: Farzad Hasan
  * Period: 1
  * Project: Maze Solver
- * Date: 2/20/2024
+ * Date: 2/28/2024
  * 
  * Creates new mazes. Please refer to the spec for instructions on how to generate mazes.
  */

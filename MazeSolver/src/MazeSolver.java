@@ -5,7 +5,7 @@
  * Name: Farzad Hasan
  * Period: 1
  * Project: Maze Solver
- * Date: 2/26/2024
+ * Date: 2/28/2024
  * 
  * Solves mazes. Please refer to the specification for instructions on how to solve mazes.
  */
@@ -48,9 +48,10 @@ public class MazeSolver
      */
     public Path solve(Maze maze)
     {
+    	//Gets size of the maze for checking cell direction later.
         int size = maze.size();
         
-        
+        //Creates the queue
         Queue<cellQueue> newQueue = new Queue<cellQueue>();
         
         newQueue.enqueue(new cellQueue(Path.NO_PATH, maze.getStart()));
@@ -58,8 +59,10 @@ public class MazeSolver
         while (!newQueue.isEmpty()) {
         	cellQueue c = newQueue.dequeue();
         	Cell current = c.getCell();
+        	//Gets X & Y coordinates for the current cell
         	int x = current.getX(), y = current.getY();
         	maze.visit(x, y);
+        	//Creates the path
         	Path result = c.getPath();
         	
         	if (current.equals(maze.getEnd())) {
@@ -105,6 +108,8 @@ public class MazeSolver
                 }
                 
             }	
+        
+        //Returns no path if nothing was yet to be returned.
         return Path.NO_PATH;
         }
         
